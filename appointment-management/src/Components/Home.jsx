@@ -16,7 +16,11 @@ import "./Home.css";
 
 const Home = () => {
   const [allData, setAllData] = useState([]);
+  const [lawyer, setLawyer] = useState({});
+
   const { isOpen, onOpen, onClose } = useDisclosure();
+ 
+  // var appointedLawyer = JSON.parse(localStorage.getItem("Booked_Lawyer")) || [];
 
   useEffect(() => {
     const getData = () => {
@@ -27,71 +31,58 @@ const Home = () => {
         });
     };
     getData();
+  
   }, []);
+
 
   function storeAppointmentData(e) {
     e.preventDefault();
-
     var myArr = JSON.parse(localStorage.getItem("ClientData")) || [];
-  
-    var name1 = document.querySelector("#name");
-    var name = name1.value;
-    name1.value = "";
+    // var notPossible = false;
 
-    var email1 = document.querySelector("#email");
-    var email = email1.value;
-    email1.value = "";
-
-    var phone1 = document.querySelector("#phone");
-    var phone = phone1.value;
-    phone1.value = "";
-
-    var subject1 = document.querySelector("#sub");
-    var subject = subject1.value;
-    subject1.value = "";
-
-    var datetime1 = document.querySelector("#datetime");
-    var datetime = datetime1.value;
-    datetime1.value = "";
-
-    console.log(name, email, phone, subject, datetime)
-
-    if (name.length <= 0) 
-    {
-      alert("Please Enter Your Name");
-    } 
-    else if (email.length <= 0) 
-    {
-      alert("Please enter valid email id");
-    } 
-    else if (phone.length <= 9) 
-    {
-      alert("Please enter valid 10 digit mobile number");
-    } 
-    else if (subject.length <= 0) 
-    {
-      alert("Please enter atleast a Title in Subject");
-    } 
-    else if (datetime.length <= 0) 
-    {
-      alert("Please Choose data and time");
-    } 
-    else 
-    {
       var obj = 
       {
-        Myname: name,
-        Myemail: email,
-        Myphone: phone,
-        Mysubject: subject,
-        Mydatetime : datetime,
+        lawyerName : lawyer.emp_name,
+        lawyerProff : lawyer.Speciality,
+        lawyerPrice : lawyer.price,
+        lawyerId : lawyer.emp_id,
+        clientName: document.querySelector("#name").value,
+        clientEmail: document.querySelector("#email").value,
+        clientPhone: document.querySelector("#phone").value,
+        clientSubject: document.querySelector("#sub").value,
+        clientDate : document.querySelector("#datetime").value,
+       
       };
+      
+      var datas = obj;
+      datas.slot = 1;
+      var flag = true;
 
-      myArr.push(obj);
-      localStorage.setItem("ClientData", JSON.stringify(myArr));
-      alert("Your Appointment is Booked.");
-    }
+      myArr.map( (elem) => {
+        if(elem.lawyerId === datas.lawyerId) 
+        {
+          elem.slot++;
+          flag = false;
+        }
+      })
+      
+        if(flag)
+        {
+          myArr.push(datas);
+         
+        }
+        
+        localStorage.setItem("ClientData", JSON.stringify(myArr));
+        alert("Your Appointment is Booked.");
+       
 
+
+  }
+  
+
+  const openModal = (singleData) => {
+    setLawyer(singleData);
+    onOpen();  
   }
   
 
@@ -108,7 +99,7 @@ const Home = () => {
           motionPreset="slideInBottom"
           isOpen={isOpen}
           onClose={onClose}
-        >
+        > 
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>Modal Title</ModalHeader>
@@ -163,11 +154,11 @@ const Home = () => {
             </Text>
             <Box className="itemBox">
               {item.employees.map((employ, index) => (
-                <Box my="1" py="2" className="singleItem" key={employ.id}>
+                <Box my="1" py="2" className="singleItem" key={employ.emp_id}>
                   <Image
                     className="imgstyle"
                     src={employ.image}
-                    alt={employ.id}
+                    alt={employ.emp_id}
                   />
                   <Text as="b" fontSize="2xl">
                     {employ.emp_name}
@@ -175,7 +166,7 @@ const Home = () => {
                   <Text fontSize="2xl">{employ.Speciality}</Text>
                   <Text fontSize="3xl">{employ.price}</Text>
                   <Button
-                    onClick={onOpen}
+                    onClick = { () => openModal(employ) }
                     leftIcon={<FcCalendar size={26} />}
                     colorScheme="green"
                     variant="solid"

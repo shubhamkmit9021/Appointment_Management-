@@ -104,7 +104,7 @@ const Appointment = () => {
 
       <Box w="45%" boxSize="sm" marginTop="35px">
         <Image
-          src="http://www.slcpartners.co.in/css/images/appoint2.jpg"
+          src="../../logo.jpg"
           alt="pic1"
         />
       </Box>
