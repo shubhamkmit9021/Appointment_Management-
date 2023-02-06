@@ -27,7 +27,14 @@ form {
     justify-content: center;
 }
 
-input[type="text"], [type="email"], input[type="number"], input[type="password"],input[type="datetime-local"] {
+input[type="text"], [type="email"], input[type="number"], input[type="password"],input[type="date"]{
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+#slotName {
     margin-bottom: 12px;
     padding: 8px;
     border: 1px solid #ccc;

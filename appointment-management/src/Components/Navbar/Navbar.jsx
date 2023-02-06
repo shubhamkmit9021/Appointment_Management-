@@ -14,8 +14,8 @@ const Navbar = () => {
       title : "Appointment",
     },
     {
-      path : '/test', 
-      title : "Test",
+      path : '/history', 
+      title : "History",
     }
   ]
   return (
