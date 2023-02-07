@@ -6,7 +6,7 @@ import Typewriter from "typewriter-effect";
 export const Type = () => {
   return (
     <Box>
-      <Text textAlign='center' fontSize='6xl'>
+      <Text textAlign='center' fontSize={{ base: "xl", sm: "3xl", md: "4xl", lg: "6xl", xl: "6xl" }}>
       <Typewriter
         options={{
           strings: ["Hello, Welcome To My Dashboard"],

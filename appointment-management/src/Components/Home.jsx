@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, Image, Button } from "@chakra-ui/react";
-import date from "date-and-time";
+import { Box, Text, Image, Button, Center } from "@chakra-ui/react";
+// import date from "date-and-time";
 import {
   Modal,
   ModalOverlay,
@@ -14,21 +14,27 @@ import {
 import { Type } from "./Type";
 import { FcCalendar } from "react-icons/fc";
 import "./Home.css";
+import History from "./History";
 
 const Home = () => {
   const [allData, setAllData] = useState([]);   // whole json data stored first
   const [lawyer, setLawyer] = useState({});    // inside this store data only which modal is open
   const [date, setDate] = useState('');        // current date store which one we enter
   const [currSlot, setCurrSlot] = useState('');  // current slot store which onw we enter
+  const [loading, setLoading] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();   // Chakra Modal Property
 
   useEffect(() => {
     const getData = () => {
+      setLoading(true);
       fetch(`https://easy-gold-tuna.cyclic.app/law_firms`)
         .then((res) => res.json())
         .then((data) => {
-          setAllData(data);
+          setTimeout( () => {
+            setAllData(data);
+            setLoading(false);
+          },1000)
         });
     };
     getData();   // function invoked
@@ -126,6 +132,7 @@ const Home = () => {
   
           localStorage.setItem("ClientData", JSON.stringify(myArr));   // In both case update array locally also
           alert("Your Appointment is Booked.");
+          <History />
   
       }
 
@@ -143,6 +150,17 @@ const Home = () => {
       <Box mb="9" mt={"15vh"}>
         <Type />
       </Box>
+
+      {loading && (
+        <Box>
+          <Center>
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif?20170503175831"
+              alt="loading_gif"
+            />
+          </Center>
+        </Box>
+      )}
 
       <Box>
         <Modal
@@ -184,15 +202,15 @@ const Home = () => {
                     <input onChange={dateUpdate}
                       type="date"
                       id="datetime"
-                      min="2023-02-06"
+                      min="2023-02-07"
                       max="2023-03-07"
                     />
                     <select id="slotName" onChange={handleSlot}>
                       <option value="">Choose Any Slot</option>
-                      <option value="9to10">09 AM to 10 AM</option>
-                      <option value="10to11">10 AM to 11 AM</option>
-                      <option value="01to02">01 PM to 02 PM</option>
-                      <option value="02to03">02 PM to 03 PM</option>
+                      <option value="09 AM to 10 AM">09 AM to 10 AM</option>
+                      <option value="10 AM to 11 AM">10 AM to 11 AM</option>
+                      <option value="01 PM to 02 PM">01 PM to 02 PM</option>
+                      <option value="02 PM to 03 PM">02 PM to 03 PM</option>
                     </select>
                     
                     <input type="submit" value="SUBMIt" onClick={onClose} />
@@ -202,10 +220,7 @@ const Home = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="red" mr={3} onClick={onClose}>
-                {" "}
-                Cancel{" "}
-              </Button>
+              <Button colorScheme="red" mr={3} onClick={onClose}> Cancel </Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
@@ -213,7 +228,7 @@ const Home = () => {
 
       <Box w="96%" m="auto">
         {allData.map((item, index) => (
-          <Box textAlign="center" fontSize="4xl" key={item.id}>
+          <Box textAlign="center" fontSize={{ base: "xl", sm: "3xl", md: "4xl", lg: "4xl", xl: "4xl" }} key={item.grp_id}>
             <Text as="mark" py="1" px="2">
               {item.name}
             </Text>
@@ -245,6 +260,7 @@ const Home = () => {
           </Box>
         ))}
       </Box>
+
     </Box>
   );
 };

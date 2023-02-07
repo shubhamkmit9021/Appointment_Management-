@@ -1,62 +1,68 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { Box, Text } from '@chakra-ui/react';
+import "./History.css";
+import DisplayFun from './DisplayFun';
+
+
 
 const History = () => {
 
-  let data = JSON.parse(localStorage.getItem("ClientData")) || [];
+  let myValue = JSON.parse(localStorage.getItem("ClientData")) || [];  // value fetch from locally
+
+  let [data, setData] = useState(myValue)   // then store in state
+
+
+  function handleSalarySort() {
+
+    let selected = document.querySelector("#sortSalary").value;
+
+    if(selected === "htl") {
+      const sorted = [...data].sort( (a,b) => {
+        return parseInt(b.lawyerPrice)-parseInt(a.lawyerPrice);
+      })
+      setData(sorted);
+    }
+
+    else if(selected === "lth") {
+      const sorted = [...data].sort( (a,b) => {
+        return parseInt(a.lawyerPrice)-parseInt(b.lawyerPrice);
+      })
+      setData(sorted);
+    }
+
+    else if(selected === "") {
+      const sorted = [...data]
+      setData(sorted);
+    }
+
+    <DisplayFun data={data}/>
+  
+  }
 
   return (
-    <Box mt='80px' p={10}>
-      {
-        data.map( (item) =>
-          <Box w="96%" m="auto">
-            <Text as="mark" py="1" px="2"> {item.lawyerName} </Text>
-          </Box>
 
-                
-      
-       
-        )
+    <Box mt='80px' p={10} >
+
+      <Box mb={3}>
+        <select id="sortSalary" onChange={handleSalarySort}>
+            <option value="">Sort by Lawyers Salary</option>
+            <option value="htl">High to Low</option>
+            <option value="lth">Low to High</option>
+        </select>
+      </Box>
+
+      {
+        data.length === 0  && <Text textAlign='center' fontSize='40px'> History is Empty </Text> 
       }
+
+      {
+        <DisplayFun data={data} />
+      }
+
     </Box>
   )
 }
 
 export default History
 
-  {/* {
-                    allData.map((item, index) => (
-                    <Box textAlign="center" fontSize="4xl" key={item.id}>
-                    
-                  
-                  </Box>
-                ))} */}
-
-{/* <Box className="itemBox">
-{item.employees.map((employ, index) => (
-  <Box my="1" py="2" className="singleItem" key={employ.emp_id}>
-    <Image
-      className="imgstyle"
-      src={employ.image}
-      alt={employ.emp_id}
-    />
-    <Text as="b" fontSize="2xl">
-      {employ.emp_name}
-    </Text>
-    <Text fontSize="2xl">{employ.Speciality}</Text>
-    <Text fontSize="3xl">{employ.price}</Text>
-    
-  </Box>
-))}
-</Box> */}
-
-{/* <h1>{item.lawyerName}</h1>
-           <h2>{item.lawyerId}</h2>
-           <h2>{item.lawyerProff}</h2>
-          <h2>{item.clientDate}</h2>
-          <h2>{item.clientEmail}</h2>
-          <h2>{item.clientName}</h2>
-          <h2>{item.clientPhone}</h2>
-          <h2>{item.clientSubject}</h2>
-           <hr /> */}
 

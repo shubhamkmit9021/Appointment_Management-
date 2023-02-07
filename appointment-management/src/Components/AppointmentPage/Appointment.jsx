@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Text, Input, Stack } from "@chakra-ui/react";
+import { Box, Image} from "@chakra-ui/react";
 import "./Appointment.css";
 
 const Appointment = () => {
@@ -63,9 +63,9 @@ const Appointment = () => {
 
   }
   return (
-    <Box display="flex" justifyContent="space-evenly" margin="auto" mt={'10vh'} >
+    <Box className="parentBox">
       <Box
-        w="45%"
+        
         textAlign="center"
         marginTop="35px"
         border="1px solid black"
@@ -102,8 +102,8 @@ const Appointment = () => {
         </div>
       </Box>
 
-      <Box w="45%" boxSize="sm" marginTop="35px">
-        <Image
+      <Box marginTop="35px">
+        <Image display={'block'} m='auto'
           src="../../logo.jpg"
           alt="pic1"
         />

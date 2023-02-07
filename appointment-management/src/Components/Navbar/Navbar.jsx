@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Spacer, Center, Text } from '@chakra-ui/react';
+import { Box, Center, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 // import { FaBeer } from 'react-icons/fa';
 

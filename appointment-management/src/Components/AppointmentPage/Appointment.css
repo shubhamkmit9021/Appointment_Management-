@@ -1,4 +1,15 @@
 
+.parentBox {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 10px;
+    width: 90%;
+    margin: 10px auto;
+    margin-top: 60px;
+    justify-content: center;
+}
+
 #parent {
     /* width: 35%; */
     margin: auto;
@@ -73,9 +84,29 @@ label {
 }
 
 
-/* 
-a {
-    font-size: 22px;
-    color: blue;
-    text-decoration: none;
-} */
+/* media queries for average screen */
+@media screen and (min-width: 400px) and (max-width: 749px){
+    .parentBox {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 2px;
+        padding: 10px;
+        width: 80%;
+        margin: 10px auto;
+        margin-top: 60px;
+    }
+          
+}
+
+@media screen and (min-width: 0px) and (max-width: 399px){
+    .parentBox {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 2px;
+        padding: 10px;
+        width: 96%;
+        margin: 10px auto;
+        margin-top: 30px;
+    }
+}
+
