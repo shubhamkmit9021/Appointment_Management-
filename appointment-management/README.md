@@ -42,8 +42,12 @@ I am building an Appointment Management application for Law Firms. Assume that t
 
 
 
+
+
 ## Various Datas of Lawyers Firms Wise
 ![data](https://user-images.githubusercontent.com/98958667/217131548-0676c2fb-968e-400d-a2b9-105529c29b4c.png)
+
+
 
 
 
@@ -53,10 +57,15 @@ I am building an Appointment Management application for Law Firms. Assume that t
  
  ![appointment](https://user-images.githubusercontent.com/98958667/217131708-101e25c9-2d56-4b26-8341-980234528c48.png)
  
+
+
+
  
 
 ## history Page
 ![history](https://user-images.githubusercontent.com/98958667/217131757-43fb3ae9-8d7e-4d77-98e1-9ed302c38f98.png)
+
+
 
 
 
@@ -65,8 +74,15 @@ I am building an Appointment Management application for Law Firms. Assume that t
 
 
 
+
+
+
 ## Sort the data Low to High
 ![lowtohigh](https://user-images.githubusercontent.com/98958667/217131916-c39af09f-fd33-4a0e-8b30-d505c6ff81b2.png)
+
+
+
+
 
 
 
