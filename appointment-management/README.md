@@ -1,73 +1,77 @@
 ## [Deployed_Link](https://bucolic-lebkuchen-03082d.netlify.app/)
 
+## Appointment_Management
 
-# Getting Started with Create React App
+I am building an Appointment Management application for Law Firms. Assume that the law firms are small with 5 or fewer lawyers in each firms
+  1. Firms can have lawyers with multiple specialties.(eg divorce lawyer, criminal lawyer, property lawyer,etc)
+  2. Each lawyer in the firm may be available for a certain duration of time.
+  3. Each lawyer may charge different rates for the appointment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
+ ## Task is:
+  1. Book an Appointment With a lawyer.
+  2. If the number of bookings goes beyond lawyer availability show “Appointments not available”
+  3. Given a lawyer, see complete appointment history
+  
+## functionality
+- We can book the appointment.
+- If any certain duration slot is already booked then "Appointments not available" alert is generated.
+- All the booking history we can see the seperate page.
+- We can also sort the entire booking data according to salary ascending and descending order.
+- This is fully responsive and a good user interface.
 
-## Available Scripts
+### Technology used:
 
-In the project directory, you can run:
+- React
+- Chakra
+- JavaScript
+- HTML
+- CSS
+- Local Storage
+- JSON Server
+- Cyclic
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Home Page loding implemented
+![homepage_loding](https://user-images.githubusercontent.com/98958667/217131505-c78547ac-a091-4647-b1c8-f4dfacb74b12.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## DashBoard 
+![home](https://user-images.githubusercontent.com/98958667/217131530-56538286-725a-4fb8-9974-febf83b995aa.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Various Datas of Lawyers Firms Wise
+![data](https://user-images.githubusercontent.com/98958667/217131548-0676c2fb-968e-400d-a2b9-105529c29b4c.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Appointment Page
+ - User can also submit the data from this page also.
+ - User data is stored in locally
+ 
+ ![appointment](https://user-images.githubusercontent.com/98958667/217131708-101e25c9-2d56-4b26-8341-980234528c48.png)
+ 
+ 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## history Page
+![history](https://user-images.githubusercontent.com/98958667/217131757-43fb3ae9-8d7e-4d77-98e1-9ed302c38f98.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Sort the data High to Low 
+![hightolow](https://user-images.githubusercontent.com/98958667/217131860-dc3a6229-7958-433d-b858-d220aa6e72b3.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Sort the data Low to High
+![lowtohigh](https://user-images.githubusercontent.com/98958667/217131916-c39af09f-fd33-4a0e-8b30-d505c6ff81b2.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### THANK YOU!
+  Shubham Kumar Rai
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
